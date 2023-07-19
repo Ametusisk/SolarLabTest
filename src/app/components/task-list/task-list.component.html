@@ -1,0 +1,14 @@
+<div *ngFor="let task of taskList" class="flex_container">
+  <div class="task">
+    <div *ngIf="task.done;then trueCheckBox else falseCheckBox"></div>
+    <ng-template #trueCheckBox>
+      <input type="checkbox" value="true" (click)="changeDone(task)" checked>
+    </ng-template>
+    <ng-template #falseCheckBox>
+      <input type="checkbox" (click)="changeDone(task)">
+    </ng-template>
+    <p>{{task.description}}</p>
+    <button (click)="deleteTask(task);">-</button>
+  </div>
+</div>
+
